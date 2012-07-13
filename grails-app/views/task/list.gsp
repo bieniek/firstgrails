@@ -12,16 +12,26 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>				
+				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				
 				<!--
-				<li><g:link controler="task" action="listByDay">List by date</g:link></li>
-				-->
 				<li>
 					<g:javascript library="application" />
 					<modalbox:modalIncludes />
 					
 					<modalbox:createLink controller="task" action="listByDay" title="List" width="500">Task lists</modalbox:createLink>
 				</li>
+				-->
+				<li>
+					<g:form name="myForm" url="[action:'listByDay',controller:'task']"> 
+						<g:select name="task.id"
+							  noSelection= "['': 'Select date...']" 
+							  from="${Task.listWithEmpty()}" 	
+							  onchange="submit()"
+							  />
+					</g:form>
+				</li>				
 			</ul>
 		</div>
 		<div id="list-task" class="content scaffold-list" role="main">
@@ -57,7 +67,7 @@
 						<td>${fieldValue(bean: taskInstance, field: "duration")}</td>
 						
 						<td>
-							<a href="${firstgrails.Configuration.get(1).bugzillaUrl.replace('%s', fieldValue(bean: taskInstance, field: "bug"))}" target="_blank">
+							<a href="${firstgrails.Configuration.get(1)?.bugzillaUrl?.replace('%s', fieldValue(bean: taskInstance, field: "bug"))}" target="_blank">
 								BZ#${fieldValue(bean: taskInstance, field: "bug")}
 							</a>
 						</td>

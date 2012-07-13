@@ -74,9 +74,10 @@ log4j = {
     // Example of changing the log pattern for the default console
     // appender:
     //
-    //appenders {
+    appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+		rollingFile  name:'infoLog', file:'info.log', threshold: org.apache.log4j.Level.ALL, maxFileSize:1024
+    }
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
@@ -89,5 +90,11 @@ log4j = {
            'org.springframework',
 		   'net.sf.ehcache.hibernate',
 		   'org.hibernate'
-           
+    
+	root {
+        info 'infoLog', stdout
+        error()
+        additivity = true
+    }
+
 }

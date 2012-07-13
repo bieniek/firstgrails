@@ -7,7 +7,7 @@ class TaskController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	TaskService taskService
-
+		
     def index() {
         redirect(action: "list", params: params)
     }
@@ -21,8 +21,7 @@ class TaskController {
 		def day = params.day?params.day:new Date()
 		def tasks = taskService.getTaskFromDay(day)
 				
-		[taskInstanceList: tasks, taskInstanceTotal: tasks.size()]
-		redirect(action: "list")
+		render(view:"list", model:[taskInstanceList: tasks, taskInstanceTotal: tasks.size()])
 	}
 
     def create() {

@@ -17,4 +17,12 @@ class Task {
 		description(maxSize:1500)
 		duration(min:0)
     }
+	
+	static def listWithEmpty() {
+		def l = []
+		Task.list().each { task ->
+			l.add(task.date)
+		}		
+		return l
+	}	
 }

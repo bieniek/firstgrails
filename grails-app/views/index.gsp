@@ -88,6 +88,7 @@
 				<h2>Where:</h2>
 				<ul>
 					<li><g:link controller="task">Manage your tasks</g:link></li>
+					<li><g:link controller="queryLibrary">Manage your queries</g:link></li>
 					<li><g:link controller="configuration">Configuration</g:link></li>
 					<!--
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
