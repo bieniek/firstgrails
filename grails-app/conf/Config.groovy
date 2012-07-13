@@ -75,8 +75,8 @@ log4j = {
     // appender:
     //
     appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-		rollingFile  name:'infoLog', file:'info.log', threshold: org.apache.log4j.Level.ALL, maxFileSize:1024
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+		//rollingFile  name:'infoLog', file:'info.log', threshold: org.apache.log4j.Level.ALL, maxFileSize:1024
     }
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -92,8 +92,8 @@ log4j = {
 		   'org.hibernate'
     
 	root {
-        info 'infoLog', stdout
-        error()
+        debug stdout
+        debug()
         additivity = true
     }
 

@@ -18,9 +18,12 @@ class TaskController {
     }
 	
 	def listByDay() {
-		def day = params.day?params.day:new Date()
-		def tasks = taskService.getTaskFromDay(day)
-				
+		def taskId = params.task?.id
+		def tasks = []
+		if (taskId) {
+			def task = Task.get(taskId)
+			tasks = taskService.getTaskFromDay(task.date)
+		}
 		render(view:"list", model:[taskInstanceList: tasks, taskInstanceTotal: tasks.size()])
 	}
 

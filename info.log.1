@@ -1,18 +1,20 @@
-2012-07-12 15:02:07,019 [http-bio-8080-exec-4] ERROR errors.GrailsExceptionResolver  - MissingMethodException occurred when processing request: [GET] /firstgrails/task/list
-No signature of method: firstgrails.Task.list() is applicable for argument types: () values: []
-Possible solutions: list(), list(java.util.Map), is(java.lang.Object), wait(), lock(), find(). Stacktrace follows:
-groovy.lang.MissingMethodException: No signature of method: firstgrails.Task.list() is applicable for argument types: () values: []
-Possible solutions: list(), list(java.util.Map), is(java.lang.Object), wait(), lock(), find()
-	at firstgrails.TaskController$$ENcxWv5U.list(TaskController.groovy:17)
+2012-07-13 14:34:17,415 [http-bio-8080-exec-2] ERROR errors.GrailsExceptionResolver  - MissingPropertyException occurred when processing request: [GET] /firstgrails/task/listByDay
+No such property: id for class: java.sql.Timestamp
+Possible solutions: day, time. Stacktrace follows:
+org.codehaus.groovy.grails.web.pages.exceptions.GroovyPagesException: Error processing GroovyPageView: Error executing tag <g:form>: Error executing tag <g:select>: No such property: id for class: java.sql.Timestamp
+Possible solutions: day, time
 	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
 	at java.lang.Thread.run(Thread.java:662)
-2012-07-12 15:02:08,878 [http-bio-8080-exec-5] ERROR errors.GrailsExceptionResolver  - MissingMethodException occurred when processing request: [GET] /firstgrails/task/list
-No signature of method: firstgrails.Task.list() is applicable for argument types: () values: []
-Possible solutions: list(), list(java.util.Map), is(java.lang.Object), wait(), lock(), find(). Stacktrace follows:
-groovy.lang.MissingMethodException: No signature of method: firstgrails.Task.list() is applicable for argument types: () values: []
-Possible solutions: list(), list(java.util.Map), is(java.lang.Object), wait(), lock(), find()
-	at firstgrails.TaskController$$ENcxWv5U.list(TaskController.groovy:17)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
-	at java.lang.Thread.run(Thread.java:662)
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Error executing tag <g:form>: Error executing tag <g:select>: No such property: id for class: java.sql.Timestamp
+Possible solutions: day, time
+	at C__devel_work_grails_workspace_firstgrails_grails_app_views_task_list_gsp$_run_closure2.doCall(list.gsp:35)
+	at C__devel_work_grails_workspace_firstgrails_grails_app_views_task_list_gsp.run(list.gsp:84)
+	... 3 more
+Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: Error executing tag <g:select>: No such property: id for class: java.sql.Timestamp
+Possible solutions: day, time
+	at C__devel_work_grails_workspace_firstgrails_grails_app_views_task_list_gsp$_run_closure2_closure26.doCall(list.gsp:34)
+	... 5 more
+Caused by: groovy.lang.MissingPropertyException: No such property: id for class: java.sql.Timestamp
+Possible solutions: day, time
+	... 6 more

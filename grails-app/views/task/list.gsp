@@ -27,8 +27,10 @@
 					<g:form name="myForm" url="[action:'listByDay',controller:'task']"> 
 						<g:select name="task.id"
 							  noSelection= "['': 'Select date...']" 
-							  from="${Task.listWithEmpty()}" 	
+							  from="${Task.list()}" 	
 							  onchange="submit()"
+							  optionKey="id"
+							  optionValue="date"							 
 							  />
 					</g:form>
 				</li>				

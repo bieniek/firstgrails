@@ -1,8 +1,10 @@
-2012-07-12 15:46:59,510 [http-bio-8080-exec-8] ERROR errors.GrailsExceptionResolver  - ClassCastException occurred when processing request: [POST] /firstgrails/task/listByDay - parameters:
-task.id: 2012-07-12 15:31:50.483
-firstgrails.TaskService cannot be cast to firstgrails.TaskService. Stacktrace follows:
-java.lang.ClassCastException: firstgrails.TaskService cannot be cast to firstgrails.TaskService
-	at firstgrails.TaskController$$ENcxeuvc.listByDay(TaskController.groovy:22)
+2012-07-13 14:38:28,820 [http-bio-8080-exec-5] ERROR errors.GrailsExceptionResolver  - MissingPropertyException occurred when processing request: [POST] /firstgrails/task/listByDay - parameters:
+task.id: 1
+No such property: task for class: firstgrails.TaskController
+Possible solutions: flash, class. Stacktrace follows:
+groovy.lang.MissingPropertyException: No such property: task for class: firstgrails.TaskController
+Possible solutions: flash, class
+	at firstgrails.TaskController.listByDay(TaskController.groovy:24)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
 	at java.lang.Thread.run(Thread.java:662)
